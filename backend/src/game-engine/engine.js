@@ -67,6 +67,7 @@ class Game {
       commandZone: commander ? [commander] : [],
       commanderTaxCount: 0,
       landsPlayedThisTurn: 0,
+      manaPool: { total: 0, colors: { white: 0, blue: 0, black: 0, red: 0, green: 0 } },
       isHuman
     };
 
