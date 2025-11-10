@@ -82,7 +82,9 @@ export default function Board() {
           <h3>{me.name} — ❤️ {me.life}</h3>
           <div style={{ display:'flex', gap:12, flexWrap:'wrap' }}>
             {/* mostramos mano reducida aquí */}
-            {(me.battlefield || []).slice(0,6).map(c => <Card key={c.id} card={c} />)}
+            {(me.battlefield || []).slice(0,6).map(c => (
+              <AnimatedCard key={c.id} card={c} small={true} isTapped={c.tapped} />
+            ))}
           </div>
 
           <Hand player={me} />
