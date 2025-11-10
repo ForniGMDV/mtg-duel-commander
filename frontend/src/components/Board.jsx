@@ -43,13 +43,32 @@ export default function Board() {
           <div style={{ display:'flex', justifyContent:'center', gap:12 }}>
             <div>
               <h4>Comandante</h4>
-              {me.commanderZone.map(c => <Card key={c.id} card={c} />)}
+              {me.commanderZone.map(c => (
+                <AnimatedCard
+                  key={c.id}
+                  card={c}
+                  onClick={() => {/* Handle commander click */}}
+                  style={{
+                    border: '2px solid gold',
+                    boxShadow: '0 0 20px rgba(255,215,0,0.3)'
+                  }}
+                />
+              ))}
             </div>
           </div>
 
           <div style={{ marginTop: 18 }}>
             <div style={{ display:'flex', gap:12, justifyContent:'center', flexWrap:'wrap' }}>
-              {(me.battlefield || []).map(c => <Card key={c.id} card={c} />)}
+              {(me.battlefield || []).map(c => (
+                <AnimatedCard
+                  key={c.id}
+                  card={c}
+                  onClick={() => {/* Handle battlefield card click */}}
+                  isTapped={c.tapped}
+                  isAttacking={c.isAttacking}
+                  showPowerToughness={true}
+                />
+              ))}
             </div>
           </div>
 
